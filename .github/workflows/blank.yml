@@ -1,0 +1,14 @@
+name: Petición automática
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # Ejecutar cada 30 minutos
+  workflow_dispatch:        # Permite ejecutarlo manualmente
+
+jobs:
+  hacer_peticion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Realizar petición GET
+        run: curl -X GET "https://ejemplo.com/endpoint"
